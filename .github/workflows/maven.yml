@@ -13,5 +13,5 @@ jobs:
         run: |
           mkdir temp
           cd temp
-          touch $TEST_FILE_NAME
+          touch del_me
           ls -la
