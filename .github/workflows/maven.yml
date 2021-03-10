@@ -18,3 +18,4 @@ jobs:
           cd temp
           touch del_me
           ls -la
+          java -jar target/gs-maven-0.1.0.jar
