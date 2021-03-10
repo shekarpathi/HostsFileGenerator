@@ -11,6 +11,7 @@ jobs:
       - uses: actions/checkout@v2.1.0
       - name: Create file
         run: |
+          ls -ltra
           mkdir temp
           cd temp
           touch del_me
