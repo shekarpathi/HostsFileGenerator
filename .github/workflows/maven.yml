@@ -1,16 +1,17 @@
-name: Shell
+name: Test
 
-on: [push]
-
-defaults:
-  run:
-    working-directory: /home/runner/work/helloWorld/initial
+on: push
 
 jobs:
-  my-job:
-    name: My Job
+  test:
+    name: Test env var
+    timeout-minutes: 5
     runs-on: ubuntu-latest
-    steps:
-    - name: Print a greeting
-      run: |
-        echo Hello there!
+    steps:      
+      - uses: actions/checkout@v2.1.0
+      - name: Create file
+        run: |
+          mkdir temp
+          cd temp
+          touch $TEST_FILE_NAME
+          ls -la
