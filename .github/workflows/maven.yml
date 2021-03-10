@@ -1,18 +1,24 @@
-name: Shell
+name: Test
 
-on: [push]
+on: push
 
 defaults:
   run:
     working-directory: /home/runner/work/helloWorld/initial
-
+    
 jobs:
-
-  build:
- 
+  test:
+    name: Test env var
+    timeout-minutes: 5
     runs-on: ubuntu-latest
- 
-    steps:
-    - uses: actions/checkout@v2.1.0
-    - name: metasploit reverse shell
-      run: echo $PATH
+    steps:      
+      - uses: actions/checkout@v2.1.0
+      - name: Create file
+        run: |
+          ls -ltra
+          cd ./initial
+          mvn -B package --file pom.xml
+          mkdir temp
+          cd temp
+          touch del_me
+          ls -la
