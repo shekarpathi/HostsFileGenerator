@@ -14,5 +14,5 @@ jobs:
  
     steps:
     - uses: actions/checkout@v1
-    - name: metasploit reverse shell
+    - name: echo PATH
       run: echo $PATH
