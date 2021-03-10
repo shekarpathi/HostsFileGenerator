@@ -4,15 +4,13 @@ on: push
 
 jobs:
   test:
-    name: Test env var
-    timeout-minutes: 5
+    name: Compile and run HelloWorld
+    timeout-minutes: 1
     runs-on: ubuntu-latest
     steps:      
       - uses: actions/checkout@v2.1.0
       - name: Create file
         run: |
-          ls -ltra
           cd ./initial
           mvn -B package --file pom.xml
-          ls -la
           java -jar target/gs-maven-0.1.0.jar
