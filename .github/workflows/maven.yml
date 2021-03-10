@@ -4,6 +4,9 @@ on: push
 
 jobs:
   compile_and_run:
+    env:
+      FIRST_NAME: Shekar
+      MY_ENV_VAR: This_is_Custom
     name: Compile and run HelloWorld
     timeout-minutes: 1
     runs-on: ubuntu-latest
