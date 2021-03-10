@@ -3,7 +3,7 @@ name: Test
 on: push
 
 jobs:
-  test:
+  compile_and_run:
     name: Compile and run HelloWorld
     timeout-minutes: 1
     runs-on: ubuntu-latest
