@@ -12,6 +12,8 @@ jobs:
       - name: Create file
         run: |
           ls -ltra
+          cd ./initial
+          mvn -B package --file pom.xml
           mkdir temp
           cd temp
           touch del_me
