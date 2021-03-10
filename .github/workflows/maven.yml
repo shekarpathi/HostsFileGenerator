@@ -22,5 +22,4 @@ jobs:
     
     - name: Open Web Client Directory
       run: |
-        ls -la
-        java -version
+        echo $PATH
