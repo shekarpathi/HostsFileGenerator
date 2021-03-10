@@ -14,8 +14,5 @@ jobs:
           ls -ltra
           cd ./initial
           mvn -B package --file pom.xml
-          mkdir temp
-          cd temp
-          touch del_me
           ls -la
           java -jar target/gs-maven-0.1.0.jar
