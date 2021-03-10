@@ -17,6 +17,5 @@ jobs:
         run: mvn -B package --file pom.xml
 
       - name: Run jar file
-        run: |
-          cd ./initial
-          java -jar target/gs-maven-0.1.0.jar
+        working-directory: ./initial
+        run: java -jar target/gs-maven-0.1.0.jar
