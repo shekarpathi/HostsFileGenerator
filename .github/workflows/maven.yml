@@ -9,8 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:      
       - uses: actions/checkout@v2.1.0
-      - name: Create file
+      - name: Create jar file
         run: |
           cd ./initial
           mvn -B package --file pom.xml
+
+      - name: Run jar file
+        run: |
+          cd ./initial
           java -jar target/gs-maven-0.1.0.jar
