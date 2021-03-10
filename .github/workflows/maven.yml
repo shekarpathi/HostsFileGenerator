@@ -5,7 +5,7 @@ on: push
 jobs:
   compile_and_run:
     env:
-      FIRST_NAME: Shekar
+      FIRST_NAME: Shekar_First_Name
       MY_ENV_VAR: This_is_Custom
     name: Compile and run HelloWorld
     timeout-minutes: 1
