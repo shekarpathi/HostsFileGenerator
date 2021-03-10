@@ -13,9 +13,8 @@ jobs:
     steps:      
       - uses: actions/checkout@v2.1.0
       - name: Create jar file
-        run: |
-          cd ./initial
-          mvn -B package --file pom.xml
+        working-directory: ./initial
+        run: mvn -B package --file pom.xml
 
       - name: Run jar file
         run: |
