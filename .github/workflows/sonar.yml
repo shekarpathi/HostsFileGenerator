@@ -1,0 +1,23 @@
+name: Test
+
+on: push
+
+jobs:
+  compile_and_run:
+    env:
+      FIRST_NAME: Shekar
+      MY_ENV_VAR: This_is_Custom
+    name: Compile and run HelloWorld
+    timeout-minutes: 1
+    runs-on: ubuntu-latest
+    steps:      
+      - uses: actions/checkout@v2.1.0
+      - name: Create jar file
+        run: |
+          cd ./initial
+          mvn -B package --file pom.xml
+
+      - name: Run jar file
+        run: |
+          cd ./initial
+          java -jar target/gs-maven-0.1.0.jar
