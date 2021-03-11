@@ -31,7 +31,4 @@ jobs:
         with:
           name: Cucumber Reports(s)
           path: |
-            ./initial/target/surefire-reports/karate-summary.html
-            ./target/surefire-reports/karate-summary.html
-            **/*vulnerabilities.json
-            **/*karate-summary.html
+            ./initial/target/surefire-reports/*
