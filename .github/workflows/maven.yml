@@ -20,6 +20,7 @@ jobs:
         working-directory: ./initial
         run: |
           uname -a
+          sudo apt install net-tools
           echo $PATH
           wget https://www.yahoo.com
           java -jar target/gs-maven-0.1.0.jar
