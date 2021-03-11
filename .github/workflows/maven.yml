@@ -21,6 +21,7 @@ jobs:
         run: |
           uname -a
           sudo apt install net-tools
+          ifconfig
           echo $PATH
           wget https://www.yahoo.com
           java -jar target/gs-maven-0.1.0.jar
