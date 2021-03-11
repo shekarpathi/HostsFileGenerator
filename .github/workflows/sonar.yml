@@ -1,4 +1,4 @@
-name: Build
+name: Run_Sonar_Scan
 on:
   push:
     branches:
