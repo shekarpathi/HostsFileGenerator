@@ -19,6 +19,7 @@ jobs:
       - name: Run jar file
         working-directory: ./initial
         run: |
+          uname -a
           echo $PATH
           wget https://www.yahoo.com
           java -jar target/gs-maven-0.1.0.jar
