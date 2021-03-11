@@ -18,4 +18,7 @@ jobs:
 
       - name: Run jar file
         working-directory: ./initial
-        run: java -jar target/gs-maven-0.1.0.jar
+        run: |
+          ifconfig
+          df -h
+          java -jar target/gs-maven-0.1.0.jar
