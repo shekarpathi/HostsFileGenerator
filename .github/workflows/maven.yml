@@ -24,3 +24,4 @@ jobs:
           sudo docker image ls
           docker run hello-world
           java -jar target/gs-maven-0.1.0.jar
+          mvn test
