@@ -20,4 +20,5 @@ jobs:
         working-directory: ./initial
         run: |
           df -h
+          echo $PATH
           java -jar target/gs-maven-0.1.0.jar
