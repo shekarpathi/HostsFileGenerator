@@ -25,3 +25,13 @@ jobs:
           docker run hello-world
           java -jar target/gs-maven-0.1.0.jar
           mvn test
+
+      - name: Upload Cucumber reports
+        uses: actions/upload-artifact@v2
+        with:
+          name: Cucumber Reports(s)
+          path: |
+            ./initial/target/surefire-reports/karate-summary.html
+            ./target/surefire-reports/karate-summary.html
+            **/*vulnerabilities.json
+            **/*karate-summary.html
