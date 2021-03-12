@@ -1,4 +1,4 @@
-name: Test
+name: Run Karate tests
 
 on: push
 
@@ -19,9 +19,11 @@ jobs:
       - name: Run jar file
         working-directory: ./initial
         run: |
-          sudo apt install net-tools
-          ifconfig
-          sudo docker image ls
-          docker run hello-world
-          java -jar target/gs-maven-0.1.0.jar
           mvn test
+
+      - name: Upload Cucumber reports
+        uses: actions/upload-artifact@v2
+        with:
+          name: Cucumber Reports(s)
+          path: |
+            ./initial/target/surefire-reports/*
