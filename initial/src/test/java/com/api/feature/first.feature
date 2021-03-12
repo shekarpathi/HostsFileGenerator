@@ -1,4 +1,4 @@
-Feature: fetching User Details
+Feature: fetching User Details 2
 
   Scenario: testing the get call for User Details 2
 
