@@ -3,7 +3,7 @@ name: Run Karate tests
 on: push
 
 jobs:
-  compile_and_run:
+  compile_App_And_Run_Karate:
     env:
       FIRST_NAME: Shekar_First_Name
       MY_ENV_VAR: This_is_Custom
