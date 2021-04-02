@@ -9,9 +9,13 @@ jobs:
       MY_ENV_VAR: This_is_Custom
     name: Compile and run HelloWorld
     timeout-minutes: 1
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:      
       - uses: actions/checkout@v2.1.0
+      - name: List directory
+        working-directory: ./initial
+        run: dir /s
+
       - name: Create jar file
         working-directory: ./initial
         run: mvn -B package --file pom.xml
