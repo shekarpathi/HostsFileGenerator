@@ -31,6 +31,13 @@ jobs:
       with:
         python-version: 3.8 #install the python needed
 
+    - name: install python packages
+      run: |
+        python -m pip install --upgrade pip
+        python3 -m pip3 install --upgrade pip3
+        pip3 install requests hashlib
+        pip install requests hashlib
+          
     - name: execute py script # run the run.py to get the latest data
       run: |
         python ./python/foo.py
@@ -40,4 +47,16 @@ jobs:
 
     - name: List directory 2
       run: ls -ltra ./
+      
+    - name: commit files
+      run: |
+        git config --local user.email "tambaram@gmail.com"
+        git config --local user.name "Shekar"
+        git add -A
+        git commit -m "update data" -a
 
+    - name: push changes
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: main  
