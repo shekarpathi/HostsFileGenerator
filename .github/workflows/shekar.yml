@@ -21,11 +21,11 @@ jobs:
     - name: echo content
       run: echo Hello, world!
 
-    - name: List directory .
-      run: find . -name foo.py
-
     - name: checkout repo content
       uses: actions/checkout@v2 # checkout the repository content to github runner.
+
+    - name: List directory .
+      run: find . -name foo.py
 
     - name: setup python
       uses: actions/setup-python@v2
