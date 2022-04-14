@@ -3,9 +3,9 @@ name: First Cron Job
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow every 16 minutes
+  # Triggers the workflow every 15 minutes
   schedule:
-  - cron: "*/16 * * * *"
+  - cron: "*/15 * * * *"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -17,4 +17,20 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Runs a single command using the runners shell
-    - run: echo Hello, world!
+    - name: echo content
+      run: echo Hello, world!
+
+    - name: List directory
+      run: ls -ltra ./python
+
+    - name: checkout repo content
+      uses: actions/checkout@v2 # checkout the repository content to github runner.
+
+    - name: setup python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8 #install the python needed
+
+    - name: execute py script # run the run.py to get the latest data
+      run: |
+        python ./python/foo.py
