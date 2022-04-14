@@ -30,5 +30,3 @@ dependency-reduced-pom.xml
 *.idea
 
 README.html
-hosts.add
-hosts.txt
