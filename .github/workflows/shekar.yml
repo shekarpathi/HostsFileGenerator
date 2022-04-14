@@ -22,7 +22,7 @@ jobs:
       run: echo Hello, world!
 
     - name: List directory .
-      run: ls -ltra /
+      run: find / -name foo.py
 
     - name: checkout repo content
       uses: actions/checkout@v2 # checkout the repository content to github runner.
