@@ -34,3 +34,10 @@ jobs:
     - name: execute py script # run the run.py to get the latest data
       run: |
         python ./python/foo.py
+
+    - name: List directory 1
+      run: ls -ltra ./python
+
+    - name: List directory 2
+      run: ls -ltra ./
+
