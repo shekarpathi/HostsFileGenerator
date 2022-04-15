@@ -42,8 +42,12 @@ jobs:
         git config --global user.name "Emma Paris"
         git config --global user.email "eparis@atlassian.com"
         ls -ltra ./
-        rm ./hosts.add
-        rm ./hosts.txt
+        git rm ./hosts.add
+        git rm ./hosts.txt
+        git status
+        git add .
+        git commit -m "Changes"
+        git push
         ls -ltra ./
         python ./python/foo.py
         ls -ltra ./
