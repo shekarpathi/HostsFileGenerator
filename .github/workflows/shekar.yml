@@ -22,7 +22,7 @@ jobs:
       run: echo Hello, world!
 
     - name: checkout repo content
-      uses: actions/checkout@v2 # checkout the repository content to github runner.
+      uses: actions/checkout@v3 # checkout the repository content to github runner.
       with:
         persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
         fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
@@ -36,9 +36,6 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install requests
-        sudo apt-get update
-        sudo apt-get install git
-        git --version
         git config --global user.name "Emma Paris"
         git config --global user.email "eparis@atlassian.com"
         ls -ltra ./
@@ -54,11 +51,13 @@ jobs:
 
     - name: commit files
       run: |
-        git config --local user.email "tambaram@gmail.com"
-        git config --local user.name "Shekar"
-        git add -A
-        git commit -m "update data" -a
-
+        date > generated.txt
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "generated"
+          git push
+          
     - name: push changes
       uses: ad-m/github-push-action@master
       with:
