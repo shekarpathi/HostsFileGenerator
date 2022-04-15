@@ -49,11 +49,15 @@ jobs:
     - name: commit files
       run: |
         date > generated.txt
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
-          git add .
-          git commit -m "generated"
-          git push
+        git config user.name "GitHub Actions Bot"
+        git config user.email "<>"
+        git status
+        git add generated.txt
+        git add hosts.txt
+        git add hosts.add
+        git status
+        git commit -m "generated"
+        git push
           
     - name: push changes
       uses: ad-m/github-push-action@master
