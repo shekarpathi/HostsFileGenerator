@@ -1,12 +1,12 @@
 # This is a basic workflow to help you get started with Actions
-name: First Cron Job
-on: push
+name: Cron job to generate hosts file from various sources
+#on: push
 
 # Controls when the workflow will run
-#on:
+on:
 #  # Triggers the workflow every 30 minutes
-#  schedule:
-#  - cron: "*/30 * * * *"
+  schedule:
+  - cron: "*/30 * * * *"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -36,7 +36,6 @@ jobs:
         git config --global user.name "Emma Paris"
         git config --global user.email "eparis@atlassian.com"
         ls -ltra ./
-        git rm ./hosts.add
         git status
         ls -ltra ./
         python ./python/foo.py
@@ -49,4 +48,4 @@ jobs:
     - name: push changes
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: Apply php-cs-fixer changes
+        commit_message: Latest changes
