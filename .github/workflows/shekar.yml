@@ -57,9 +57,8 @@ jobs:
         git status
         git commit -m "generated"
         git push
-          
+
     - name: push changes
-      uses: ad-m/github-push-action@master
+      uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: main  
+        commit_message: Apply php-cs-fixer changes
