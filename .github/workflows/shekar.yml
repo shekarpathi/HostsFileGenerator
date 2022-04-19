@@ -46,17 +46,9 @@ jobs:
         python ./python/foo.py
         ls -ltra ./
 
-    - name: commit files
+    - name: Generate dummy file
       run: |
         date > generated.txt
-        git config user.name "GitHub Actions Bot"
-        git config user.email "<>"
-        git status
-        git add generated.txt
-        git add hosts.add
-        git status
-        git commit -m "generated"
-        git push
 
     - name: push changes
       uses: stefanzweifel/git-auto-commit-action@v4
