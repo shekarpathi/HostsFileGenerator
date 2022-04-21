@@ -4,7 +4,8 @@ name: Cron job to generate hosts file from various sources
 
 # Controls when the workflow will run
 on:
-#  # Triggers the workflow every 30 minutes
+  push:
+  #  # Triggers the workflow every 30 minutes
   schedule:
   - cron: "*/30 * * * *"
 
