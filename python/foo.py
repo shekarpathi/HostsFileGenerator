@@ -30,6 +30,8 @@ for line in open('hosts.txt', 'r'):
     continue
   if ("homedepot.sjv.io" in line.rstrip()):
     continue
+  if (".dice.com" in line.rstrip()):
+    continue
   #5
   hashValue = hashlib.md5(line.rstrip().encode('utf-8')).hexdigest()
   #6
