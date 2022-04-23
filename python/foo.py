@@ -32,6 +32,8 @@ for line in open('hosts.txt', 'r'):
     continue
   if (".dice.com" in line.rstrip()):
     continue
+  if ("logmeinsupport.nanorep.co" in line.rstrip()):
+    continue
   #5
   hashValue = hashlib.md5(line.rstrip().encode('utf-8')).hexdigest()
   #6
