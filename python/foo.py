@@ -9,9 +9,9 @@ url = 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fak
 r = requests.get(url, allow_redirects=True)
 open('hosts.txt', 'wb').write(r.content)
 
-url = 'https://hosts.ubuntu101.co.za/hosts'
-r = requests.get(url, allow_redirects=True)
-open('hosts.txt', 'ab').write(r.content)
+# url = 'https://hosts.ubuntu101.co.za/hosts'
+# r = requests.get(url, allow_redirects=True)
+# open('hosts.txt', 'ab').write(r.content)
 
 output_file_path = 'hosts.add'
 #2
