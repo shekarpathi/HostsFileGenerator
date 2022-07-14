@@ -20,7 +20,7 @@ open('hosts_adobe.txt', 'wb').write(r.content)
 #1
 fin = open("hosts_adobe.txt", "r")
 #output file to write the result to
-fout = open("hosts_adobe.add", "wb")
+fout = open("hosts_adobe.add", "w")
 #for each line in the input file
 for line in fin:
 	#read replace the string and write to output file
