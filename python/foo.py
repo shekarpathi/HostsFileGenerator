@@ -3,7 +3,7 @@ import hashlib
 import os
 
 # initialize exception domains, these will be allowed
-allowable_domains_set = [".godaddy.com", ".etihad.com", "www.googleadservices.com", "ad.doubleclick.net", "go.redirectingat.com", "www.jdoqocy.com", "cj.dotomi.com", "go.redirectingat.com"]
+allowable_domains_set = [".godaddy.com", "sso.godaddy.com", ".etihad.com", "www.googleadservices.com", "ad.doubleclick.net", "go.redirectingat.com", "www.jdoqocy.com", "cj.dotomi.com", "go.redirectingat.com"]
 
 url = 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts'
 r = requests.get(url, allow_redirects=True)
