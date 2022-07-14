@@ -52,7 +52,7 @@ jobs:
         date > generated.txt
         ls -ltra generated.txt
 
-    - name: Add and commit changes
+    - name: Add, commit and push changes
       uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
       with:
         # The arguments for the `git add` command (see the paragraph below for more info)
@@ -62,15 +62,3 @@ jobs:
         tag: 'v1.0.0 --force'
         tag_push: '--force'
         message: 'Added hosts.txt'
-        
-    - name: push changes
-      uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        push_options: '--force'
-        commit_message: Automated Latest Change
-        file_pattern: hosts.add
-        skip_dirty_check: true
-        # Optional. Skip internal call to `git fetch`
-        skip_fetch: true    
-        # Optional. Skip internal call to `git checkout`
-        skip_checkout: true
