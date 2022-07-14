@@ -15,6 +15,11 @@ url = 'https://hosts.ubuntu101.co.za/hosts'
 r = requests.get(url, allow_redirects=True)
 open('hosts.txt', 'ab').write(r.content)
 
+url = 'https://gitlab.com/The_Quantum_Alpha/the-quantum-ad-list/-/raw/master/Individual%20lists/The_Quantum_Youtube-Ads-List.txt'
+r = requests.get(url, allow_redirects=True)
+open('hosts.txt', 'ab').write(r.content)
+
+
 url = 'https://gist.githubusercontent.com/consti/8022703/raw/47e20864cae30c8f7024444de353b4f03ee7c93d/hosts'
 r = requests.get(url, allow_redirects=True)
 open('hosts_adobe.txt', 'wb').write(r.content)
