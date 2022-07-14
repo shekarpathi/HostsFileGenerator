@@ -15,12 +15,12 @@ open('hosts.txt', 'ab').write(r.content)
 
 url = 'https://gist.githubusercontent.com/consti/8022703/raw/47e20864cae30c8f7024444de353b4f03ee7c93d/hosts'
 r = requests.get(url, allow_redirects=True)
-open('hosts.txt', 'ab').write(r.content)
+open('hosts_adobe.txt', 'wb').write(r.content)
 
 #1
-fin = open("hosts.txt", "rt")
+fin = open("hosts_adobe.txt", "r")
 #output file to write the result to
-fout = open("hosts_adobe.txt", "wt")
+fout = open("hosts_adobe.add", "wb")
 #for each line in the input file
 for line in fin:
 	#read replace the string and write to output file
