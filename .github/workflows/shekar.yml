@@ -58,7 +58,11 @@ jobs:
         # The arguments for the `git add` command (see the paragraph below for more info)
         # Default: '.'
         add: '.'
-    
+        push: true
+        tag: 'v1.0.0 --force'
+        tag_push: '--force'
+        message: 'Added hosts.txt'
+        
     - name: push changes
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
