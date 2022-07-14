@@ -13,6 +13,22 @@ url = 'https://hosts.ubuntu101.co.za/hosts'
 r = requests.get(url, allow_redirects=True)
 open('hosts.txt', 'ab').write(r.content)
 
+url = 'https://gist.githubusercontent.com/consti/8022703/raw/47e20864cae30c8f7024444de353b4f03ee7c93d/hosts'
+r = requests.get(url, allow_redirects=True)
+open('hosts.txt', 'ab').write(r.content)
+
+#1
+fin = open("hosts.txt", "rt")
+#output file to write the result to
+fout = open("hosts_adobe.txt", "wt")
+#for each line in the input file
+for line in fin:
+	#read replace the string and write to output file
+	fout.write(line.replace('127.0.0.1', '0.0.0.0'))
+#close input and output files
+fin.close()
+fout.close()
+
 output_file_path = 'hosts.add'
 #2
 completed_lines_hash = set()
