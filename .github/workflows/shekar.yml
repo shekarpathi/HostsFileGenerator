@@ -41,8 +41,8 @@ jobs:
         git status
     - name: Run python program to extract
       run: |
-        rm hosts.add
-        rm generated.txt
+        rm hosts.add || true
+        rm generated.txt || true
         ls -ltra hosts.add
         python ./python/foo.py
         ls -ltra hosts.add
