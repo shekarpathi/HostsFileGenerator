@@ -24,6 +24,7 @@ jobs:
         repository: shekarpathi/helloWorld
         persist-credentials: true # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
         fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
+        clean: true
 
     - name: setup python
       uses: actions/setup-python@v2
@@ -34,17 +35,20 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install requests
-        git config --global user.name "Emma Paris"
-        git config --global user.email "eparis@atlassian.com"
+        git config --global user.name "Shekar"
+        git config --global user.email "shekar@yahoo.com"
         ls -ltra ./
         git status
         ls -ltra ./
+        rm hosts.add
+        rm generated.txt
         python ./python/foo.py
         ls -ltra ./
 
     - name: Generate dummy file
       run: |
         date > generated.txt
+        ls -ltra generated.txt
 
     - name: push changes
       uses: stefanzweifel/git-auto-commit-action@v4
