@@ -45,7 +45,6 @@ for line in open('hosts.txt', 'r'):
   #   continue
   for x in allowable_domains_set:
    if (x in line.rstrip()):
-     print(x)
      block_url = False
      break
       
