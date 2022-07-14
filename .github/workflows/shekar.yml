@@ -44,8 +44,6 @@ jobs:
         ls -ltra hosts.add
         python ./python/foo.py
         ls -ltra hosts.add
-        cat youtube_block_list.add >> hosts.add
-        ls -ltra hosts.add
 
     - name: Generate dummy file
       run: |
