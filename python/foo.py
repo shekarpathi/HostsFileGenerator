@@ -3,7 +3,7 @@ import hashlib
 import os
 
 # initialize exception domains, these will be allowed
-allowable_domains_set = [".godaddy.com", "sso.godaddy.com", ".etihad.com", "www.googleadservices.com", "ad.doubleclick.net", "go.redirectingat.com", "www.jdoqocy.com", "cj.dotomi.com", "go.redirectingat.com"]
+# allowable_domains_set = [".godaddy.com", "sso.godaddy.com", ".etihad.com", "www.googleadservices.com", "ad.doubleclick.net", "go.redirectingat.com", "www.jdoqocy.com", "cj.dotomi.com", "go.redirectingat.com"]
 
 url = 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts'
 r = requests.get(url, allow_redirects=True)
@@ -24,9 +24,9 @@ output_file = open(output_file_path, 'w')
 for line in open('hosts.txt', 'r'):
   if (line.rstrip() == "fe80::1%lo0 localhost"):
     continue
-  for x in allowable_domains_set:
-    if (x in line.rstrip()):
-      continue
+  # for x in allowable_domains_set:
+  #  if (x in line.rstrip()):
+  #    continue
       
   #5
   hashValue = hashlib.md5(line.rstrip().encode('utf-8')).hexdigest()
