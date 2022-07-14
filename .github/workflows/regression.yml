@@ -1,7 +1,9 @@
 name: Run Karate tests
 
-on: push
-
+on:
+  push:
+    branches:
+      - main_
 jobs:
   compile_App_And_Run_Karate:
     env:
