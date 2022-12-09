@@ -8,23 +8,23 @@ allowable_domains_set = ["fe80::1%lo0 localhost", ".godaddy.com", "sso.godaddy.c
 block_url = True
 
 url = 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts'
-r = requests.get(url, allow_redirects=True, ssl=False)
+r = requests.get(url, allow_redirects=True, verify=False)
 open('hosts.txt', 'wb').write(r.content)
 
 #url = 'https://hosts.ubuntu101.co.za/hosts'
-#r = requests.get(url, allow_redirects=True, ssl=False)
+#r = requests.get(url, allow_redirects=True, verify=False)
 #open('hosts.txt', 'ab').write(r.content)
 
 url = 'https://gitlab.com/The_Quantum_Alpha/the-quantum-ad-list/-/raw/master/Individual%20lists/The_Quantum_Youtube-Ads-List.txt'
-r = requests.get(url, allow_redirects=True, ssl=False)
+r = requests.get(url, allow_redirects=True, verify=False)
 open('hosts.txt', 'ab').write(r.content)
 
 url = 'https://gitlab.com/The_Quantum_Alpha/the-quantum-ad-list/-/raw/master/Individual%20lists/The_Quantum_Simply-ads-list.txt'
-r = requests.get(url, allow_redirects=True, ssl=False)
+r = requests.get(url, allow_redirects=True, verify=False)
 open('hosts.txt', 'ab').write(r.content)
 
 url = 'https://gist.githubusercontent.com/consti/8022703/raw/47e20864cae30c8f7024444de353b4f03ee7c93d/hosts'
-r = requests.get(url, allow_redirects=True, ssl=False)
+r = requests.get(url, allow_redirects=True, verify=False)
 open('hosts_adobe.txt', 'wb').write(r.content)
 
 #1
