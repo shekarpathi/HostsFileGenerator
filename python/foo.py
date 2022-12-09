@@ -11,9 +11,9 @@ url = 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fak
 r = requests.get(url, allow_redirects=True, ssl=False)
 open('hosts.txt', 'wb').write(r.content)
 
-url = 'https://hosts.ubuntu101.co.za/hosts'
-r = requests.get(url, allow_redirects=True, ssl=False)
-open('hosts.txt', 'ab').write(r.content)
+#url = 'https://hosts.ubuntu101.co.za/hosts'
+#r = requests.get(url, allow_redirects=True, ssl=False)
+#open('hosts.txt', 'ab').write(r.content)
 
 url = 'https://gitlab.com/The_Quantum_Alpha/the-quantum-ad-list/-/raw/master/Individual%20lists/The_Quantum_Youtube-Ads-List.txt'
 r = requests.get(url, allow_redirects=True, ssl=False)
