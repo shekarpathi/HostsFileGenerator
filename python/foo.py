@@ -23,6 +23,10 @@ open('hosts.txt', 'ab').write(r.content)
 #r = requests.get(url, allow_redirects=True, verify=False)
 #open('hosts.txt', 'ab').write(r.content)
 
+url = 'https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Hosts/GoodbyeAds.txt'
+r = requests.get(url, allow_redirects=True, verify=False)
+open('hosts.txt', 'ab').write(r.content)
+
 url = 'https://gist.githubusercontent.com/consti/8022703/raw/47e20864cae30c8f7024444de353b4f03ee7c93d/hosts'
 r = requests.get(url, allow_redirects=True, verify=False)
 open('hosts_adobe.txt', 'wb').write(r.content)
