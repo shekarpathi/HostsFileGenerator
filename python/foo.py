@@ -19,9 +19,9 @@ url = 'https://gitlab.com/The_Quantum_Alpha/the-quantum-ad-list/-/raw/master/Ind
 r = requests.get(url, allow_redirects=True, verify=False)
 open('hosts.txt', 'ab').write(r.content)
 
-url = 'https://gitlab.com/The_Quantum_Alpha/the-quantum-ad-list/-/raw/master/Individual%20lists/The_Quantum_Simply-ads-list.txt'
-r = requests.get(url, allow_redirects=True, verify=False)
-open('hosts.txt', 'ab').write(r.content)
+#url = 'https://gitlab.com/The_Quantum_Alpha/the-quantum-ad-list/-/raw/master/Individual%20lists/The_Quantum_Simply-ads-list.txt'
+#r = requests.get(url, allow_redirects=True, verify=False)
+#open('hosts.txt', 'ab').write(r.content)
 
 url = 'https://gist.githubusercontent.com/consti/8022703/raw/47e20864cae30c8f7024444de353b4f03ee7c93d/hosts'
 r = requests.get(url, allow_redirects=True, verify=False)
