@@ -3,7 +3,7 @@ import hashlib
 import os
 
 # initialize exception domains, these will be allowed
-allowable_domains_set = ["fe80::1%lo0 localhost", ".godaddy.com", "sso.godaddy.com", ".etihad.com", "www.googleadservices.com", "ad.doubleclick.net", "go.redirectingat.com", "www.jdoqocy.com", "cj.dotomi.com", "go.redirectingat.com"]
+allowable_domains_set = ["fe80::1%lo0 localhost", ".godaddy.com", "sso.godaddy.com", ".etihad.com", "urldefense.com", "www.googleadservices.com", "ad.doubleclick.net", "go.redirectingat.com", "www.jdoqocy.com", "cj.dotomi.com", "go.redirectingat.com"]
 
 block_url = True
 
