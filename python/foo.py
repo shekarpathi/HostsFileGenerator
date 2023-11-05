@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 import hashlib
 import os
 
@@ -49,6 +50,11 @@ completed_lines_hash = set()
 
 #3
 output_file = open(output_file_path, 'w')
+# datetime object containing current date and time
+now = datetime.now()
+dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+line='# Program ran on ' + dt_string + '\n'
+output_file.write(line)
 
 #4
 for line in open('hosts.txt', 'r'):
