@@ -1,4 +1,4 @@
-import re, requests
+import re, requests, os
 
 response = requests.get('http://line.lemotv.cc:25461/get.php?username=Ufq7Y2hUbX&password=tJNse4HJja&type=m3u_plus&output=mpegts', timeout=120)
 with open("sample.txt", "w") as file:
@@ -61,8 +61,8 @@ for i in range(0, len(lines)):
                 if ("mkv" in nextLine) or ("avi" in nextLine) :
                     print ("Did not write - %s", nextLine)
                 else :
-                    print(currLine.strip())
-                    print(nextLine.strip())
+                    #print(currLine.strip())
+                    #print(nextLine.strip())
                     m3uOutputFile.write(currLine)
                     m3uOutputFile.write(nextLine)
-
+os.unlink("sample.txt")
