@@ -44,6 +44,7 @@ jobs:
         ls -ltra hosts.add
         python ./python/foo.py
         ls -ltra hosts.add
+        python ./python/lemo.py
 
     - name: Generate dummy file
       run: |
