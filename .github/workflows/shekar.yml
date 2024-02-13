@@ -46,6 +46,8 @@ jobs:
         ls -ltra hosts.add
         python ./python/lemo.py
 
+        python getDullesArrivals.py
+
     - name: Generate dummy file
       run: |
         date > generated.txt
