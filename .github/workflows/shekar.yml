@@ -41,10 +41,10 @@ jobs:
         git status
     - name: Run python program to extract
       run: |
-        ls -ltra hosts.add
-        python ./python/foo.py
-        ls -ltra hosts.add
-        python ./python/lemo.py
+        # ls -ltra hosts.add
+        # python ./python/foo.py
+        # ls -ltra hosts.add
+        # python ./python/lemo.py
 
         python getDullesArrivals.py
 
