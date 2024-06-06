@@ -64,7 +64,7 @@ desired_group_title_set = {'Sport Cricket', 'IN: Indian South', 'IN: Indian Ente
                            'USA NFL - Sunday Ticket', 'USA Local - ABC', 'IT: Sky Sports',
                            'DK: Denmark Sport', 'USA Local - NBC',
                            '24/7 Sports Replay', 'USA Sports', 'UK: Sport',
-                           'USA NCAAF', 'PK: Pakistan Sport', 'CH: Switzerland Sport',
+                           'USA NCAAF', 'CH: Switzerland Sport',
                            'Latino Sports', 'UK: EPL Games', 'USA NHL', 'CAR: Caribbean Sport',
                            'USA Bein Sports', 'Sport Golf',
                            'USA Local - FOX'}
