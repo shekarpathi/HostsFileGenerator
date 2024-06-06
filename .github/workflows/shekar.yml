@@ -39,6 +39,10 @@ jobs:
         git config --global user.email "shekar@yahoo.com"
         ls -ltra ./
         git status
+        git fetch
+        git pull
+        git status
+    
     - name: Run python program to extract
       run: |
         ls -ltra hosts.add
