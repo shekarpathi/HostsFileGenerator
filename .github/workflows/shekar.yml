@@ -45,6 +45,8 @@ jobs:
         python ./python/foo.py
         ls -ltra hosts.add
         python ./python/lemo.py
+        ls -ltra hosts.add
+        python ./python/lemoSports.py
 
         python getDullesArrivals.py
 
