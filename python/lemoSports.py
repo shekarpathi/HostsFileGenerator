@@ -6,14 +6,14 @@ import os
 if os.path.exists("lemoTVSports.m3u"):
     os.remove("lemoTVSports.m3u")
 
-# if os.path.exists("lemoTVMaster.txt"):
-#     os.remove("lemoTVMaster.txt")
+if os.path.exists("lemoTVMaster.txt"):
+    os.remove("lemoTVMaster.txt")
 
-# response = requests.get(
-#     'http://line.lemotv.cc:25461/get.php?username=Ufq7Y2hUbX&password=tJNse4HJja&type=m3u_plus&output=mpegts',
-#     timeout=120)
-# with open("lemoTVMaster.txt", "w", encoding="utf-8") as file:
-#     file.write(response.text)
+response = requests.get(
+    'http://line.lemotv.cc:25461/get.php?username=Ufq7Y2hUbX&password=tJNse4HJja&type=m3u_plus&output=mpegts',
+    timeout=120)
+with open("lemoTVMaster.txt", "w", encoding="utf-8") as file:
+    file.write(response.text)
 
 fo = open("lemoTVMaster.txt", "r", encoding="utf-8")
 
@@ -89,4 +89,4 @@ for i in range(0, len(lines)):
                     m3uOutputFile.write('%s\n' % currLine)
                     m3uOutputFile.write('%s\n' % nextLine)
 fo.close()
-# os.unlink("lemoTVMaster.txt")
+os.unlink("lemoTVMaster.txt")
