@@ -67,7 +67,7 @@ desired_group_title_set = {'Sport Cricket', 'IN: Indian South', 'IN: Indian Ente
                            'USA NCAAF', 'CH: Switzerland Sport',
                            'Latino Sports', 'UK: EPL Games', 'USA NHL', 'CAR: Caribbean Sport',
                            'USA Bein Sports', 'Sport Golf',
-                           'USA Local - FOX'}
+                           'USA Local - FOX', 'Olympic'}
 fo = open("lemoTVMaster.txt", "r", encoding="utf-8")
 lines = fo.readlines()
 for i in range(0, len(lines)):
