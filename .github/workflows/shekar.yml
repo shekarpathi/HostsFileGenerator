@@ -51,10 +51,7 @@ jobs:
         python ./python/lemo.py
         ls -ltra hosts.add
         python ./python/lemoSports.py
-
-        ls -ltra hosts.add
-        python ./python/lemoAll.py
-        ls -ltra *.m3u
+        ls -ltra
 
         python getDullesArrivals.py
 
