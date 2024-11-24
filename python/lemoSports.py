@@ -9,9 +9,11 @@ if os.path.exists("lemoTVSports.m3u"):
 if os.path.exists("lemoTVMaster.txt"):
     os.remove("lemoTVMaster.txt")
 
+#response = requests.get(
+#    'http://line.lemotv.cc:25461/get.php?username=Ufq7Y2hUbX&password=tJNse4HJja&type=m3u_plus&output=mpegts',
+#    timeout=120)
 response = requests.get(
-    'http://line.lemotv.cc:25461/get.php?username=Ufq7Y2hUbX&password=tJNse4HJja&type=m3u_plus&output=mpegts',
-    timeout=120)
+    'http://ky-iptv.com:25461/get.php?username=nameproratererun&password=5715623659&type=m3u_plus&output=mpegts', timeout=120)
 with open("lemoTVMaster.txt", "w", encoding="utf-8") as file:
     file.write(response.text)
 
