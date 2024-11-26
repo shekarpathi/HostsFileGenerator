@@ -53,7 +53,7 @@ jobs:
         python ./python/lemoSports.py
         ls -ltra
 
-        python getDullesArrivals.py
+        # python getDullesArrivals.py
 
     - name: Generate dummy file
       run: |
