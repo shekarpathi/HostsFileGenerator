@@ -6,7 +6,7 @@ if os.path.exists("sample.txt"):
 if os.path.exists("lemoTV.m3u"):
   os.remove("lemoTV.m3u")
     
-response = requests.get('http://line.lemotv.cc:25461/get.php?username=Ufq7Y2hUbX&password=tJNse4HJja&type=m3u_plus&output=mpegts', timeout=120)
+response = requests.get('http://ky-iptv.com:25461/get.php?username=MahAndMahindra&password=6547657898&type=m3u_plus&output=mpegts', timeout=120)
 with open("sample.txt", "w") as file:
     file.write(response.text)
 
