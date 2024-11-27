@@ -42,7 +42,7 @@ def filter_by_group_title_from_url(url, output_file, group_titles):
 
 # Example usage
 url = 'http://ky-iptv.com:25461/get.php?username=MahAndMahindra&password=6547657898&type=m3u_plus&output=mpegts'
-output_file = 'filtered_sports_and_more.m3u'  # Path to save the filtered file
+output_file = 'lemoTVSports.m3u'  # Path to save the filtered file
 
 # Updated group titles
 group_titles = [
