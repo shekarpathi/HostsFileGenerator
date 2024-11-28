@@ -41,7 +41,7 @@ def filter_by_group_title_from_url(url, output_file, group_titles):
         print(f"Failed to fetch the file: {e}")
 
 # Example usage
-url = 'http://ky-iptv.com:25461/get.php?username=MahAndMahindra&password=6547657898&type=m3u_plus&output=mpegts'
+url = 'http://ky-iptv.com:25461/get.php?username=DonnyNov28&password=7021128702&type=m3u_plus&output=mpegts'
 output_file = 'lemoTVAll.m3u'  # Path to save the filtered file
 
 # Updated group titles
