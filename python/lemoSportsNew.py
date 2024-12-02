@@ -42,6 +42,7 @@ def filter_by_group_title_from_url(url, output_file, group_titles):
 
 # Example usage
 url = 'http://ky-iptv.com:25461/get.php?username=JeganMogan&password=6784352467&type=m3u_plus&output=mpegts'
+url = 'http://line.myox.me/get.php?username=9ae0eda6a1&password=478b2eef3ba7&type=m3u_plus&output=ts'
 output_file = 'lemoTVSports.m3u'  # Path to save the filtered file
 
 # Updated group titles
@@ -57,7 +58,9 @@ group_titles = [
     'USA Local - NBC', '24/7 Sports Replay', 'USA Sports', 'UK: Sport',
     'USA NCAAF', 'CH: Switzerland Sport', 'Latino Sports', 'UK: EPL Games',
     'USA NHL', 'CAR: Caribbean Sport', 'USA Bein Sports', 'Sport Golf',
-    'USA Local - FOX', 'Olympics Events 2024'
+    'USA Local - FOX', 'Olympics Events 2024', '4K UHD 3840P', '4K RELAX 1920P',
+    'US| NBA PACKAGE', 'US| NFL PACKAGE', '|EN| 4K MOVIES', '|EN| NETFLIX', '|EN| TOP SERIES',
+    'ASIA | INDIA NEWS', 'UK| NEWS', 'US| NEWS NETWORK'
 ]
 
 filter_by_group_title_from_url(url, output_file, group_titles)
