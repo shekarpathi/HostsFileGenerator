@@ -20,10 +20,12 @@ def filter_by_group_title_from_url(url, output_file, group_titles):
         filtered_lines = []
         
         # Copy the first two lines as is
-        filtered_lines.extend(lines[:2])
+        # filtered_lines.extend(lines[:2])
+        filtered_lines.extend(lines[:1])
         
         # Process lines starting from the 3rd line
-        for i in range(2, len(lines) - 1, 2):  # Increment by 2 for metadata and URL pairs
+        #for i in range(2, len(lines) - 1, 2):  # Increment by 2 for metadata and URL pairs
+        for i in range(1, len(lines) - 1, 2):  # Increment by 2 for metadata and URL pairs
             metadata_line = lines[i]
             url_line = lines[i + 1]
             
