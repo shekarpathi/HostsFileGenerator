@@ -54,7 +54,7 @@ group_titles = [
     'USA Local - MISC', 'BR: Brazil Sports', 'USA Bally Sports', 'DE: Germany Sport',
     'FR: France Sports', 'USA NBA', 'CA: Canada Super Sports',
     'Sport Tennis', 'CA: Canada Sports', 'USA Local - CBS',
-    'SE: Sweden Sport', 'Sport NCAA Women Basketball', 'USA MLB',
+     'USA MLB', 'SE: Sweden Sport', 'Sport NCAA Women Basketball',
     'USA NBC Sports', 'Africa Super Sports', 'USA NFL - Sunday Ticket',
     'USA Local - ABC', 'IT: Sky Sports', 'DK: Denmark Sport',
     'USA Local - NBC', '24/7 Sports Replay', 'USA Sports', 'UK: Sport',
