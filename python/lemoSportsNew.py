@@ -44,7 +44,7 @@ def filter_by_group_title_from_url(url, output_file, group_titles):
 
 # Example usage
 url = 'http://ky-iptv.com:25461/get.php?username=JeganMogan&password=6784352467&type=m3u_plus&output=mpegts'
-url = 'http://line.myox.me/get.php?username=9ae0eda6a1&password=478b2eef3ba7&type=m3u_plus&output=ts'
+url = 'http://ky-iptv.com:80/playlist/7GbjTWuTAs/sEgg4mRKCR/m3u_plus?output=hls'
 output_file = 'lemoTVSports.m3u'  # Path to save the filtered file
 
 # Updated group titles
