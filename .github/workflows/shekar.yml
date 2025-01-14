@@ -58,6 +58,19 @@ jobs:
       run: |
         date > generated.txt
         ls -ltra generated.txt
+        git config --global user.name "Shekar"
+        git config --global user.email "shekar@yahoo.com"
+        git rm --cached generated.txt
+        git rm --cached filtered_sports_and_more.m3u
+        git rm --cached hosts_adobe.add
+        git rm --cached hosts.add
+        git rm --cached lemoTV.m3u
+        git rm --cached hosts_adobe.txt
+        git rm --cached lemoTVAll.m3u
+        git rm --cached lemoTVSports.m3u
+        git rm --cached youtube_block_list.add
+        git commit -m "Remove all data files from previous history"
+
 
     - name: Add, commit and push changes
       uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
