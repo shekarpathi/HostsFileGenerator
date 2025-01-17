@@ -46,10 +46,11 @@ jobs:
     - name: Run python program to extract
       run: |
         ls -ltra hosts.add
-        python ./python/lemo.py
+        cd ./python
+        python lemo.py
         ls -ltra hosts.add
-        python ./python/lemoSportsNew.py
-        python ./python/lemoAllNew.py
+        python lemoSportsNew.py
+        python lemoAllNew.py
         ls -ltra
 
         # python getDullesArrivals.py
