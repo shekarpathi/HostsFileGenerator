@@ -43,8 +43,7 @@ def filter_by_group_title_from_url(url, output_file, group_titles):
         print(f"Failed to fetch the file: {e}")
 
 # Example usage
-url = 'http://ky-iptv.com:25461/get.php?username=JeganMogan&password=6784352467&type=m3u_plus&output=mpegts'
-url = 'http://ky-iptv.com:80/playlist/7GbjTWuTAs/sEgg4mRKCR/m3u_plus?output=hls'
+url = 'http://cf.shark-cdn.me/get.php?username=1fd6eb0eb8&password=b2f5bc7f2eb9a14e&type=m3u_plus&output=ts'
 output_file = 'lemoTVSports.m3u'  # Path to save the filtered file
 
 # Updated group titles
@@ -64,5 +63,12 @@ group_titles = [
     'US| NBA PACKAGE', 'US| NFL PACKAGE', '|EN| 4K MOVIES', '|EN| NETFLIX', '|EN| TOP SERIES',
     'ASIA | INDIA NEWS', 'UK| NEWS', 'US| NEWS NETWORK'
 ]
+
+group_titles = []
+# Open the file and read lines
+with open('unique-group-titles', 'r') as file:
+    # Read each line, strip newline characters, and add to the list
+    group_titles = [line.strip() for line in file]
+print(group_titles)
 
 filter_by_group_title_from_url(url, output_file, group_titles)
