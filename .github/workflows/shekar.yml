@@ -46,9 +46,10 @@ jobs:
     - name: Run python program to extract
       run: |
         cd ./python
-        python lemo.py
-        python lemoSportsNew.py
-        python lemoAllNew.py
+#        python lemo.py
+#        python lemoSportsNew.py
+#        python lemoAllNew.py
+        python l7.py
         ls -ltra
 
         # python getDullesArrivals.py
