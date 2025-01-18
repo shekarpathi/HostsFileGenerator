@@ -1,5 +1,5 @@
 import requests
-
+# git pull --rebase origin main
 def filter_by_group_title_from_url(url, output_file, group_titles):
     """
     Fetches an M3U file from a URL, filters lines based on 'group-title' values,
