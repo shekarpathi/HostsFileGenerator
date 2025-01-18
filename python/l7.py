@@ -49,13 +49,15 @@ def filter_by_group_title_from_url(url, output_file, group_titles):
     except requests.RequestException as e:
         print(f"Failed to fetch the file: {e}")
 
-
 def generate_random_email():
     # List of random email providers
-    email_providers = ['gmaill.com', 'yahooo.com', 'outloook.com', 'hotmaill.com', 'protonmaill.com', 'iicloud.com']
+    # email_providers = ['gmaill.co.ch', 'RedMaiil.co.WA', 'bIngo.co.uk', 'yahooo.com', 'yahooo.co.nl', 'outloook.co.shop', 'hotmaill.co.jp', 'protonmaill.com', 'iicloud.com']
+    with open('email_providers.txt', 'r') as file:
+        # Read each line, strip newline characters, and add to the list
+        email_providers = [line.strip() for line in file]
 
     # Generate a random username (8-12 characters long, alphanumeric with underscores)
-    username_length = random.randint(8, 12)
+    username_length = random.randint(10, 15)
     username = ''.join(random.choices(string.ascii_letters + string.digits + '_', k=username_length))
 
     # Ensure username contains at least one number and one underscore
@@ -115,7 +117,7 @@ def getCSRFTokenForLayerseven():
 #         return None
 
 def getMiddlewareToken(csrftoken, email):
-    print("csrftoken passed to getMiddlewareToken: " + csrftoken)
+    # print("csrftoken passed to getMiddlewareToken: " + csrftoken)
     # URL to send the request to
     url = "https://panel.layerseven.ai/sign-up"
     headers = {
@@ -133,7 +135,7 @@ def getMiddlewareToken(csrftoken, email):
 
     # Extract the value attribute
     if csrf_token and 'value' in csrf_token.attrs:
-        print("csrfmiddlewaretoken:", csrf_token['value'])
+        # print("csrfmiddlewaretoken:", csrf_token['value'])
         return csrf_token['value']
     else:
         print("csrfmiddlewaretoken not found.")
@@ -148,21 +150,21 @@ def signupForLayerseven(csrftoken, email):
         "Content-Type": "application/x-www-form-urlencoded"
     }
     mwToken = getMiddlewareToken(csrftoken, email)
-    print("=-------mwToken------=")
-    print(mwToken)
+    # print("=-------mwToken------=")
+    # print(mwToken)
 
     # duckAddress = getnewDuckAddress()
     duckAddress = email
     body = f"csrfmiddlewaretoken={mwToken}&email={duckAddress}&password=Lg6*%26bdHsKEC%23f5G"
-    print("---------------")
-    print(body)
+    # print("---------------")
+    # print(body)
     # Send a GET request to the URL
     response = requests.post(url, headers=headers, data=body, allow_redirects=False)
     # print(response.status_code)
     cookies = response.cookies
     for cookie in cookies:
         if (cookie.name == "session_id"):
-            print(cookie.name, cookie.value)
+            # print(cookie.name, cookie.value)
             return cookie.value
     # print(response.status_code)
     #
@@ -180,9 +182,9 @@ def checkoutLayerseven(csrftoken, session_id, email):
     # Send a GET request to the URL
     response = requests.get(url, cookies=cookies, allow_redirects=True)
     cookies = response.cookies
-    for cookie in cookies:
-        print(cookie.name, cookie.value)
-    print(response.status_code)
+    # for cookie in cookies:
+    #     print(cookie.name, cookie.value)
+    # print(response.status_code)
     html_content = response.text
     # print(html_content)
     # Parse the HTML content using BeautifulSoup
@@ -198,7 +200,7 @@ def checkoutLayerseven(csrftoken, session_id, email):
 
     # Print the extracted URL
     if required_url:
-        print("Extracted URL:", required_url)
+        # print("Extracted URL:", required_url)
         return required_url
     else:
         print("No matching URL found in the table.")
@@ -210,10 +212,10 @@ def checkoutLayerseven(csrftoken, session_id, email):
 
 
 if __name__ == "__main__":
-    email = generate_random_email()
+    shan_email = generate_random_email()
     csrftoken = getCSRFTokenForLayerseven()
-    session_id = signupForLayerseven(csrftoken, email)
-    shankarURL = checkoutLayerseven(csrftoken, session_id, email)
+    session_id = signupForLayerseven(csrftoken, shan_email)
+    shankarURL = checkoutLayerseven(csrftoken, session_id, shan_email)
     shankar_output_file = 'shan.m3u'  # Path to save the filtered file
     # Parse the URL
     shan_parsed_url = urlparse(shankarURL)
@@ -223,10 +225,10 @@ if __name__ == "__main__":
     shan_username = shan_query_params.get('username', [None])[0]
     shan_password = shan_query_params.get('password', [None])[0]
 
-    email = generate_random_email()
+    shek_email = generate_random_email()
     csrftoken = getCSRFTokenForLayerseven()
-    session_id = signupForLayerseven(csrftoken, email)
-    shekarURL = checkoutLayerseven(csrftoken, session_id, email)
+    session_id = signupForLayerseven(csrftoken, shek_email)
+    shekarURL = checkoutLayerseven(csrftoken, session_id, shek_email)
     shekar_output_file = 'shek.m3u'  # Path to save the filtered file
     # Parse the URL
     shek_parsed_url = urlparse(shekarURL)
@@ -236,10 +238,10 @@ if __name__ == "__main__":
     shek_username = shek_query_params.get('username', [None])[0]
     shek_password = shek_query_params.get('password', [None])[0]
 
-    email = generate_random_email()
+    ragu_email = generate_random_email()
     csrftoken = getCSRFTokenForLayerseven()
-    session_id = signupForLayerseven(csrftoken, email)
-    raghuURL = checkoutLayerseven(csrftoken, session_id, email)
+    session_id = signupForLayerseven(csrftoken, ragu_email)
+    raghuURL = checkoutLayerseven(csrftoken, session_id, ragu_email)
     rag_output_file = 'rr.m3u'  # Path to save the filtered file
     # Parse the URL
     rag_parsed_url = urlparse(raghuURL)
@@ -249,10 +251,10 @@ if __name__ == "__main__":
     rag_username = rag_query_params.get('username', [None])[0]
     rag_password = rag_query_params.get('password', [None])[0]
 
-    email = generate_random_email()
+    rang_email = generate_random_email()
     csrftoken = getCSRFTokenForLayerseven()
-    session_id = signupForLayerseven(csrftoken, email)
-    rangaURL = checkoutLayerseven(csrftoken, session_id, email)
+    session_id = signupForLayerseven(csrftoken, rang_email)
+    rangaURL = checkoutLayerseven(csrftoken, session_id, rang_email)
     rang_output_file = 'rn.m3u'  # Path to save the filtered file
     # Parse the URL
     rang_parsed_url = urlparse(rangaURL)
@@ -262,10 +264,10 @@ if __name__ == "__main__":
     rang_username = rang_query_params.get('username', [None])[0]
     rang_password = rang_query_params.get('password', [None])[0]
 
-    email = generate_random_email()
+    amit_email = generate_random_email()
     csrftoken = getCSRFTokenForLayerseven()
-    session_id = signupForLayerseven(csrftoken, email)
-    amitURL = checkoutLayerseven(csrftoken, session_id, email)
+    session_id = signupForLayerseven(csrftoken, amit_email)
+    amitURL = checkoutLayerseven(csrftoken, session_id, amit_email)
     amit_output_file = 'ah.m3u'  # Path to save the filtered file
     # Parse the URL
     ah_parsed_url = urlparse(amitURL)
@@ -275,11 +277,11 @@ if __name__ == "__main__":
     ah_username = ah_query_params.get('username', [None])[0]
     ah_password = ah_query_params.get('password', [None])[0]
 
-    print(shankarURL, shan_username, shan_password)
-    print(shekarURL, shek_username, shek_password)
-    print(raghuURL, rag_username, rag_password)
-    print(rangaURL, rang_username, rang_password)
-    print(amitURL, ah_username, ah_password)
+    print(shankarURL, shan_username, shan_password, shan_email)
+    print(shekarURL, shek_username, shek_password, shek_email)
+    print(raghuURL, rag_username, rag_password, ragu_email)
+    print(rangaURL, rang_username, rang_password,rang_email)
+    print(amitURL, ah_username, ah_password, amit_email)
 
     # Open the file and read lines
     with open('unique-group-titles', 'r') as file:
