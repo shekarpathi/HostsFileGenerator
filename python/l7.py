@@ -2,20 +2,71 @@ import requests
 from bs4 import BeautifulSoup
 import html
 from datetime import datetime
+import random
+import string
 
-def GetUniqueEmail():
-    # Get the current date and time
-    now = datetime.now()
 
-    # Format the date and time as MMDDHHSS
-    current_time = now.strftime("%m%d%H%S")
-    # Create the string with "mammotty_" prepended and "@gmail.com" appended
-    email = f"mammotty_{current_time}@gmail.com"
+def filter_by_group_title_from_url(url, output_file, group_titles):
+    """
+    Fetches an M3U file from a URL, filters lines based on 'group-title' values,
+    and writes the results to a new file, including the first two lines.
 
-    print("Generated Email:", email)
+    Parameters:
+        url (str): URL to fetch the M3U file from.
+        output_file (str): Path to the output filtered M3U file.
+        group_titles (list): List of 'group-title' values to filter by.
+    """
+    try:
+        # Fetch the M3U file content
+        response = requests.get(url)
+        response.raise_for_status()
+        lines = response.text.splitlines()
 
-    return email
+        # Prepare the filtered lines
+        filtered_lines = []
 
+        # Copy the first two lines as is
+        # filtered_lines.extend(lines[:2])
+        filtered_lines.extend(lines[:1])
+
+        # Process lines starting from the 3rd line
+        # for i in range(2, len(lines) - 1, 2):  # Increment by 2 for metadata and URL pairs
+        for i in range(1, len(lines) - 1, 2):  # Increment by 2 for metadata and URL pairs
+            metadata_line = lines[i]
+            url_line = lines[i + 1]
+
+            # Check if 'group-title' contains any of the specified group_titles
+            if any(f'group-title="{title}"' in metadata_line for title in group_titles):
+                filtered_lines.append(metadata_line.strip())
+                filtered_lines.append(url_line.strip())
+
+        # Write the filtered lines to the output file
+        with open(output_file, 'w') as file:
+            file.write('\n'.join(filtered_lines))
+
+        print(f"Filtered lines saved to {output_file}")
+    except requests.RequestException as e:
+        print(f"Failed to fetch the file: {e}")
+
+def generate_random_email():
+    # List of random email providers
+    email_providers = ['gmaill.com', 'yahooo.com', 'outloook.com', 'hotmaill.com', 'protonmaill.com', 'iicloud.com']
+
+    # Generate a random username (8-12 characters long, alphanumeric with underscores)
+    username_length = random.randint(8, 12)
+    username = ''.join(random.choices(string.ascii_letters + string.digits + '_', k=username_length))
+
+    # Ensure username contains at least one number and one underscore
+    while not any(char.isdigit() for char in username) or '_' not in username:
+        username = ''.join(random.choices(string.ascii_letters + string.digits + '_', k=username_length))
+
+    # Choose a random email provider
+    email_provider = random.choice(email_providers)
+
+    # Combine username and email provider
+    random_email = f"{username}@{email_provider}"
+
+    return random_email
 
 def getCSRFTokenForLayerseven():
     # URL to send the request to
@@ -36,29 +87,29 @@ def getCSRFTokenForLayerseven():
         return None
 
 
-def getnewDuckAddress1():
-    # URL to send the request to
-    url = "https://quack.duckduckgo.com/api/email/addresses"
-    headers = {
-        "Authorization": "Bearer xtnkrtadqkrdaajcunq6pdos8qzrs6j5at8enrdcz0nwbqiwy7ixefnyhv2bct"
-    }
-
-    # Send the POST request
-    response = requests.post(url, headers=headers)
-    # Check if the response is valid
-    if response.status_code == 201:
-        response_json = response.json()
-        address = response_json.get("address")
-        if address:
-            modified_address = f"{address}@duck.com"
-            print("Modified Address:", modified_address)
-            return modified_address
-        else:
-            print("'address' key not found in the response JSON.")
-            return None
-    else:
-        print("Request failed with status code:", response.status_code)
-        return None
+# def getnewDuckAddress1():
+#     # URL to send the request to
+#     url = "https://quack.duckduckgo.com/api/email/addresses"
+#     headers = {
+#         "Authorization": "Bearer xtnkrtadqkrdaajcunq6pdos8qzrs6j5at8enrdcz0nwbqiwy7ixefnyhv2bct"
+#     }
+#
+#     # Send the POST request
+#     response = requests.post(url, headers=headers)
+#     # Check if the response is valid
+#     if response.status_code == 201:
+#         response_json = response.json()
+#         address = response_json.get("address")
+#         if address:
+#             modified_address = f"{address}@duck.com"
+#             print("Modified Address:", modified_address)
+#             return modified_address
+#         else:
+#             print("'address' key not found in the response JSON.")
+#             return None
+#     else:
+#         print("Request failed with status code:", response.status_code)
+#         return None
 
 def getMiddlewareToken(csrftoken,email):
     print("csrftoken passed to getMiddlewareToken: " + csrftoken)
@@ -123,12 +174,8 @@ def checkoutLayerseven(csrftoken, session_id, email):
     cookies = {
         'csrftoken': csrftoken, 'session_id': session_id, 'email': email, 'picture': 'None'
     }
-    print("$$$$$$$$$$$$$$$")
-    print(cookies)
-    print("$$$$$$$$$$$$$$$")
     # Send a GET request to the URL
     response = requests.get(url, cookies=cookies, allow_redirects=True)
-    print(response.status_code)
     cookies = response.cookies
     for cookie in cookies:
         print(cookie.name, cookie.value)
@@ -149,6 +196,7 @@ def checkoutLayerseven(csrftoken, session_id, email):
     # Print the extracted URL
     if required_url:
         print("Extracted URL:", required_url)
+        return required_url
     else:
         print("No matching URL found in the table.")
 
@@ -159,11 +207,51 @@ def checkoutLayerseven(csrftoken, session_id, email):
 
 
 if __name__ == "__main__":
-    # url = 'http://www.s.nickmom.com'
-    # result = ur.isURLReachable(url)
-    # print('A: %s | %s | %s | %s' % (url, result[0], result[1], result[2]))
-    # getMiddlewareToken()
-    email = GetUniqueEmail()
+    email = generate_random_email()
     csrftoken = getCSRFTokenForLayerseven()
     session_id=signupForLayerseven(csrftoken, email)
-    checkoutLayerseven(csrftoken, session_id, email)
+    shankarURL=checkoutLayerseven(csrftoken, session_id, email)
+    shankar_output_file = 'shan.m3u'  # Path to save the filtered file
+
+    email = generate_random_email()
+    csrftoken = getCSRFTokenForLayerseven()
+    session_id=signupForLayerseven(csrftoken, email)
+    shekarURL=checkoutLayerseven(csrftoken, session_id, email)
+    shekar_output_file = 'shek.m3u'  # Path to save the filtered file
+
+    email = generate_random_email()
+    csrftoken = getCSRFTokenForLayerseven()
+    session_id=signupForLayerseven(csrftoken, email)
+    raghuURL=checkoutLayerseven(csrftoken, session_id, email)
+    rag_output_file = 'rr.m3u'  # Path to save the filtered file
+
+    email = generate_random_email()
+    csrftoken = getCSRFTokenForLayerseven()
+    session_id=signupForLayerseven(csrftoken, email)
+    rangaURL=checkoutLayerseven(csrftoken, session_id, email)
+    rang_output_file = 'rn.m3u'  # Path to save the filtered file
+
+    email = generate_random_email()
+    csrftoken = getCSRFTokenForLayerseven()
+    session_id=signupForLayerseven(csrftoken, email)
+    amitURL=checkoutLayerseven(csrftoken, session_id, email)
+    amit_output_file = 'ah.m3u'  # Path to save the filtered file
+
+    print(shankarURL)
+    print(shekarURL)
+    print(raghuURL)
+    print(rangaURL)
+    print(amitURL)
+
+    # Open the file and read lines
+    with open('unique-group-titles', 'r') as file:
+        # Read each line, strip newline characters, and add to the list
+        group_titles = [line.strip() for line in file]
+    # print(group_titles)
+
+    filter_by_group_title_from_url(shankarURL, shankar_output_file, group_titles)
+    filter_by_group_title_from_url(shekarURL, shekar_output_file, group_titles)
+    filter_by_group_title_from_url(raghuURL, rag_output_file, group_titles)
+    filter_by_group_title_from_url(rangaURL, rang_output_file, group_titles)
+    filter_by_group_title_from_url(amitURL, amit_output_file, group_titles)
+

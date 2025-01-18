@@ -44,27 +44,8 @@ def filter_by_group_title_from_url(url, output_file, group_titles):
 
 # Example usage
 url = 'http://cf.shark-cdn.me/get.php?username=1fd6eb0eb8&password=b2f5bc7f2eb9a14e&type=m3u_plus&output=ts'
-output_file = 'lemoTVSports.m3u'  # Path to save the filtered file
+output_file = 'ss.m3u'  # Path to save the filtered file
 
-# Updated group titles
-group_titles = [
-    'Sport Cricket', 'IN: Indian South', 'IN: Indian Entertainment',
-    'ESPN Events 200 VIP channels', 'USA NFL - Sunday Ticket', 'Sport Cycling',
-    'USA Local - MISC', 'BR: Brazil Sports', 'USA Bally Sports', 'DE: Germany Sport',
-    'FR: France Sports', 'USA NBA', 'CA: Canada Super Sports',
-    'Sport Tennis', 'CA: Canada Sports', 'USA Local - CBS',
-     'USA MLB', 'SE: Sweden Sport', 'Sport NCAA Women Basketball',
-    'USA NBC Sports', 'Africa Super Sports', 'USA NFL - Sunday Ticket',
-    'USA Local - ABC', 'IT: Sky Sports', 'DK: Denmark Sport',
-    'USA Local - NBC', '24/7 Sports Replay', 'USA Sports', 'UK: Sport',
-    'USA NCAAF', 'CH: Switzerland Sport', 'Latino Sports', 'UK: EPL Games',
-    'USA NHL', 'CAR: Caribbean Sport', 'USA Bein Sports', 'Sport Golf',
-    'USA Local - FOX', 'Olympics Events 2024', '4K UHD 3840P', '4K RELAX 1920P',
-    'US| NBA PACKAGE', 'US| NFL PACKAGE', '|EN| 4K MOVIES', '|EN| NETFLIX', '|EN| TOP SERIES',
-    'ASIA | INDIA NEWS', 'UK| NEWS', 'US| NEWS NETWORK'
-]
-
-group_titles = []
 # Open the file and read lines
 with open('unique-group-titles', 'r') as file:
     # Read each line, strip newline characters, and add to the list
